@@ -77,32 +77,32 @@ void printNutrientRecList(recList* list)
         {
             case(5):
             {
-                printf("\nCALORIES: %.1lf\n", temp->amount);
+                printf("\n\nCALORIES: %.1lf\n", temp->amount);
                 break;
             }
             case(4):
             {
-                printf("\nSUGAR( grams ): %.1lf\n", temp->amount);
+                printf("\n\nSUGAR( grams ): %.1lf\n", temp->amount);
                 break;
             }
             case(3):
             {
-                printf("\nSODIUM( milligrams ): %.1lf\n", temp->amount);
+                printf("\n\nSODIUM( milligrams ): %.1lf\n", temp->amount);
                 break;
             }
             case(2):
             {
-                printf("\nPROTEIN( grams ): %.1lf\n", temp->amount);
+                printf("\n\nPROTEIN( grams ): %.1lf\n", temp->amount);
                 break;
             }
             case(1):
             {
-                printf("\nFAT( grams ): %.1lf\n", temp->amount);
+                printf("\n\nFAT( grams ): %.1lf\n", temp->amount);
                 break;
             }
             case(0):
             {
-                printf("\nCHOLESTEROL( milligrams ): %.1lf\n", temp->amount);
+                printf("\n\nCHOLESTEROL( milligrams ): %.1lf\n", temp->amount);
                 break;
             }
         }
@@ -275,8 +275,8 @@ double calculateCumulativeAvg(FILE* file1)
 
 void menu(void)
 {
-    printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-    printf("\n\n\n                                          MAIN MENU\n                          Select a choice from the following options:\n\n1: View Your Daily Nutrient Intake Goals\n\n2: Add A Meal's To Today's Tracking\n\n3: View Today's Progress Towards Your Daily Nutrient Intake Goals\n\n4: Save Today's Progress, Come Back Later!\n\n5: End Today's Tracking and Recieve Today's Report, as Well as a Cumulative Progress Report On Your Nutrient Intake\n");
+    printf("--------------------------------------------------------------------------------------------------");
+    printf("\n\n\n                                          MAIN MENU\n\n                          Select a choice from the following options:\n\n1: View Your Daily Goals\n\n\n2: Add A Meal\n\n\n3: View Today's Progress\n\n\n4: Save Today's Progress, Come Back Later!\n\n\n5: End Today's Tracking and Recieve Reports\n\n\n\n\nAnswer> ");
 }
 
 //Will hold the daily consumption amounts of nutrients.
@@ -350,14 +350,14 @@ FILE* recs;
         
         do
         {
-            printf("\n\n                        Welcome to your Personalized Nutrient Tracker!\n\nTrack your daily intake of calories, sugar, sodium, protein, fat, and cholesterol!\n\nStay within your daily nutrient intake goals!\n\nRecieve cumulative reports on your average nutrient intake over days, weeks, months, or longer!\n\nReach your dietary goals!\n\n                        Please select from the following:\n\n                      1:Start A New Day of Nutrient Tracking\n\n                      2:Continue Tracking Nutrients for Today\n\n                      3:Exit \n");
+            printf("\n\n                        Welcome to your Personalized Nutrient Tracker!\n\n\nTrack your daily intake of calories, sugar, sodium, protein, fat, and cholesterol!\n\n\n\n                        Please select from the following:\n\n\n                      1: Start A New Day of Nutrient Tracking\n\n                      2: Continue Tracking Today\n\n                      3: Exit \n\n\nAnswer> ");
             scanf(" %d", &a);
             
             
             //User wants to begin tracking a new day
             if(a==1)
             {
-                printf("\n\n                                     DISCLAIMER:\nIF THIS IS YOUR FIRST TIME USING THE PROGRAM AND YOU HAVE NOT BEGUN TRACKING YOUR NUTRIENT\nINTAKE, DISREGARD THE FOLLOWING WARNING MESSAGE AND ENTER 'Y' WHEN PROMPTED.\nHAPPY NUTRIENT TRACKING!\n\n\n                                     WARNING:\nIf you have not concluded your tracking from today by recieving a cumulative report on today's\ntracking, today's tracking will be lost.\n\nIf you HAVE ended today's tracking and recieved a cumulative report, OR if you have not tracked\nyour first day yet, then you can begin tracking a new day by entering 'Y' when prompted!\n\nIf not, please enter 'N' when prompted, and you will be re-directed to the main menu.\nTo save your previous data, you should select option 2:'Continue Tracking for today'\nThen, from the second set of options, select option 5: 'End today's tracking and recieve a daily\nand cumulative progress report'.\n\nPlease Answer: Have you asked for a cumulative report of your previous tracking?:\n\n  Y or N:\n\n");
+                printf("\n\n                                     DISCLAIMER:\nIF THIS IS YOUR FIRST TIME USING THE PROGRAM AND YOU HAVE NOT BEGUN TRACKING YOUR NUTRIENT\nINTAKE, DISREGARD THE FOLLOWING WARNING MESSAGE AND ENTER 'Y' WHEN PROMPTED.\n\n                                    HAPPY TRACKING!\n\n\n                                     WARNING:\nIf you have not concluded your tracking from yesterday by recieving a cumulative report, yesterday's data will be lost.\n\n\n\n\nPlease Answer: Have you asked for a cumulative report of your previous tracking?:\n\n  Y or N:\n\n");
                 
                 scanf(" %c", &exceptionToStartNewDay);
             }
@@ -396,13 +396,13 @@ FILE* recs;
                 file_ptr_fat= fopen("fatFile.txt","w");
                 file_ptr_cholesterol= fopen("cholesterolFile.txt","w");
                 
-                printf("\n///////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nAwesome! Its a new day, Let's begin tracking your nutrient intake!\n\nFirst up, let's calculate your personalized daily nutrient recommendations!\n");
+                    printf("--------------------------------------------------------------------------------------------");
+                printf("\n                    Awesome! Its a new day, Let's begin tracking your nutrient intake!\n\nFirst up, let's calculate your personalized daily nutrient recommendations!\n");
              
                     // re-opening recs to wipe the file and start new
                     recs = freopen("recs.txt", "w", recs);
                     
-                    printf("\nPlease enter your sex:\n\n  f or m:");
+                    printf("\n\nPlease enter your sex:\n\n  f or m:");
                     scanf(" %s", sex);
                     
                     
@@ -413,20 +413,20 @@ FILE* recs;
                         scanf(" %s", sex);
                     }
                                 
-                    printf("\nPlease enter your height, in inches:\n\n  height: ");
+                    printf("\n\nPlease enter your height, in inches:\n\n  Height: ");
                     scanf(" %lf", &height);
                                 while(height < 36.0 || height > 84.0)
                                 {
-                                    printf("\nINVALID HEIGHT\nPlease enter your height, in inches:\n\n  height: ");
+                                    printf("\nINVALID HEIGHT\nPlease enter your height, in inches:\n\n  Height: ");
                                     scanf(" %lf", &height);
                                 }
-                    printf("\nPlease enter your weight, in lbs:\n\nweight: ");
+                    printf("\n\nPlease enter your weight, in lbs:\n\nWeight: ");
                     scanf(" %lf", &weight);
-                    printf("\nPlease enter your age, as a whole number rounded up:\n\n  age: ");
+                    printf("\nPlease enter your age, as a whole number rounded up:\n\n  Age: ");
                     scanf(" %d", &age);
                     
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                    printf("\n\n                                     CALCULATIONS SUCCESSFUL!\nPer your sex, height, weight, and age, your daily nutrient intake goals are as follows:\n\n");
+                    printf("--------------------------------------------------------------------------------------------");
+                    printf("\n\n                                     CALCULATIONS SUCCESSFUL!\n\nPer your sex, height, weight, and age, your daily nutrient intake goals are as follows:\n\n");
                     
                     //This for-loop will calculate the recommended intake of each nutrient for the individual. Will input the results to the recs file, and also print the recommended list to the terminal.
                     for(int i = 5; i >= 0; i--)
@@ -440,27 +440,27 @@ FILE* recs;
                             }
                             case(4):
                             {
-                                printf("\n\nSUGAR( grams ): %.1lf", nrec);
+                                printf("\n\n\nSUGAR( grams ): %.1lf", nrec);
                                 break;
                             }
                             case(3):
                             {
-                                printf("\n\nSODIUM( milligrams ): %.1lf", nrec);
+                                printf("\n\n\nSODIUM( milligrams ): %.1lf", nrec);
                                 break;
                             }
                             case(2):
                             {
-                                printf("\n\nPROTEIN( grams ): %.1lf", nrec);
+                                printf("\n\n\nPROTEIN( grams ): %.1lf", nrec);
                                 break;
                             }
                             case(1):
                             {
-                                printf("\n\nFAT( grams ): %.1lf", nrec);
+                                printf("\n\n\nFAT( grams ): %.1lf", nrec);
                                 break;
                             }
                             case(0):
                             {
-                                printf("\n\nCHOLESTEROL( milligrams ): %.1lf", nrec);
+                                printf("\n\n\nCHOLESTEROL( milligrams ): %.1lf\n", nrec);
                                 break;
                             }
                         }
@@ -516,8 +516,8 @@ FILE* recs;
                 // Creating the linked list of nutrientRec nodes, which will get printed out to the terminal for the user to see via a traversal of the linked list.
                 fclose(recs);
                 fopen("recs.txt", "r");
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\n\nYou want to view your daily nutrient intake goals!!\n\n");
+                printf("--------------------------------------------------------------------------------------------");
+               
                 
                     recList = recListConstructor();
                     
@@ -604,33 +604,33 @@ FILE* recs;
                 file_ptr_protein= freopen("proteinFile.txt","a+", file_ptr_protein);
                 file_ptr_fat= freopen("fatFile.txt","a+", file_ptr_fat);
                 file_ptr_cholesterol=freopen("cholesterolFile.txt","a+", file_ptr_cholesterol);
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou want to add a meal's nutrients to today's tracking!\n");
-                printf("\nPlease enter meal's calorie amount:\n\n  calories:\n");
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n                       You want to add a meal's nutrients to today's tracking!\n");
+                printf("\nPlease enter meal's calorie amount:\n\n  Calories: ");
                 scanf("%lf", &calories);
                 fprintf(file_ptr_cals, "%.2lf\n", calories);
                 
-                printf("\n%.1lf calories added to today's total.\n\nPlease enter meal's sugar content, in grams:\n\n  sugar:\n", calories);
+                printf("\n%.1lf calories added to today's total.\n\n\nPlease enter meal's sugar content, in grams:\n\n  Sugar: ", calories);
                 scanf("%lf", &sugar);
                 fprintf(file_ptr_sugar, "%.1lf\n", sugar);
                 
-                printf("\n%.1lf grams of sugar added to today's total.\n\nPlease enter meal's sodium content, in milligrams:\n\n  sodium:\n", sugar);
+                printf("\n%.1lf grams of sugar added to today's total.\n\n\nPlease enter meal's sodium content, in milligrams:\n\n  Sodium: ", sugar);
                 scanf("%lf", &sodium);
                 fprintf(file_ptr_sodium, "%.1lf\n", sodium);
                 
-                printf("\n%.1lf milligrams of sodium added to today's total.\n\nPlease enter meal's protein content, in grams:\n\n  protein:\n", sodium);
+                printf("\n%.1lf milligrams of sodium added to today's total.\n\n\nPlease enter meal's protein content, in grams:\n\n  Protein: ", sodium);
                 scanf("%lf", &protein);
                 fprintf(file_ptr_protein, "%.1lf\n", protein);
                 
-                printf("\n%.1lf grams of protein added to today's total.\n\nPlease enter meal's fat content, in grams:\n\n  fat:\n", protein);
+                printf("\n%.1lf grams of protein added to today's total.\n\n\nPlease enter meal's fat content, in grams:\n\n  Fat: ", protein);
                 scanf("%lf", &fat);
                 fprintf(file_ptr_fat, "%.1lf\n", fat);
                 
-                printf("\n%.1lf grams of fat added to today's total.\n\nPlease enter meal's cholesterol content, in milligrams:\n\n  cholesterol:\n", fat);
+                printf("\n%.1lf grams of fat added to today's total.\n\n\nPlease enter meal's cholesterol content, in milligrams:\n\n  Cholesterol: ", fat);
                 scanf("%lf", &cholesterol);
                 fprintf(file_ptr_cholesterol, "%.1lf\n", cholesterol);
                 
-                printf("\n%.1lf milligrams of cholesterol added to today's total.\n\n\n                             Meal successfully tracked! Awesome job!\n", fat);
+                printf("\n%.1lf milligrams of cholesterol added to today's total.\n\n\n                             Meal successfully tracked! Awesome job!\n", cholesterol);
             }
             
             
@@ -665,41 +665,41 @@ FILE* recs;
               
                 
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou want to view your nutrient intake progress for the day!\n\nBelow are your total intakes for each nutrient, as well as a comparison to your daily intake goals!\n                         Remember, aim to stay within your goals!!\n\n");
+                printf("--------------------------------------------------------------------------------------------");
+                printf("n\nBelow are your total intakes for each nutrient, as well as a comparison to your daily intake goals.\n\n");
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\n\nYou have consumed a total of %.1lf calories today.\n", calorieTotal);
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\n\nYou have consumed a total of %.1lf calories today.\n", calorieTotal);
                 printf("\nYou have %.1lf calories REMAINING in the day to consume.\n", calculateRemaining(calorieTotal, recs, 0));
                 fclose(recs);
                 recs = fopen("recs.txt", "r");
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou have consumed a total of %.1lf grams of sugar today.\n", sugarTotal);
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\nYou have consumed a total of %.1lf grams of sugar today.\n", sugarTotal);
                 printf("\nYou have %.1lf grams of sugar REMAINING in the day to consume.\n", calculateRemaining(sugarTotal, recs, 1));
                 fclose(recs);
                 recs = fopen("recs.txt", "r");
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou have consumed a total of %.1lf milligrams of sodium today.\n", sodiumTotal);
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\nYou have consumed a total of %.1lf milligrams of sodium today.\n", sodiumTotal);
                 printf("\nYou have %.1lf milligrams of sodium REMAINING in the day to consume.\n", calculateRemaining(sodiumTotal, recs, 2));
                 fclose(recs);
                 recs = fopen("recs.txt", "r");
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou have consumed a total of %.1lf grams of protein today.\n", proteinTotal);
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\nYou have consumed a total of %.1lf grams of protein today.\n", proteinTotal);
                 printf("\nYou have %.1lf grams of protein REMAINING in the day to consume.\n", calculateRemaining(proteinTotal, recs, 3));
                 fclose(recs);
                 recs = fopen("recs.txt", "r");
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou have consumed a total of %.1lf grams of fat today.\n", fatTotal);
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\nYou have consumed a total of %.1lf grams of fat today.\n", fatTotal);
                 printf("\nYou have %.1lf grams of fat REMAINING in the day to consume.\n", calculateRemaining(fatTotal, recs, 4));
                 fclose(recs);
                 recs = fopen("recs.txt", "r");
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\nYou have consumed a total of %.1lf milligrams of cholesterol today.\n", cholesterolTotal);
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\nYou have consumed a total of %.1lf milligrams of cholesterol today.\n", cholesterolTotal);
                 printf("\nYou have %.1lf milligrams of cholesterol REMAINING in the day to consume.\n", calculateRemaining(cholesterolTotal, recs, 5));
                 fclose(recs);
                 recs = fopen("recs.txt", "r");
@@ -710,8 +710,8 @@ FILE* recs;
             //User wants to exit the porgram for now, but does not want to end the day of tracking. Will exit the program.
             else if(answer == 4)
             {
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\n\nBye For Now!\n\nCome Back Soon!\n");
+                printf("--------------------------------------------------------------------------------------------");
+                printf("\n\nBye For Now!\n\nCome Back Soon!\n\n\n");
                 fclose(file_ptr_cals);
                 fclose(file_ptr_sugar);
                 fclose(file_ptr_sodium);
@@ -761,7 +761,7 @@ FILE* recs;
                 
                 
                 
-                printf("                                    Congratulations!\n                You have succesfully tracked your nutrient intake for the day!\n\n                           Below is a report on today's tracking!\n\nAlso provided is a cumulative report on your average daily nutrient consumption over the past several days, weeks, or however long you have been tracking!\n\n");
+                printf("\n\nBelow is a report on today's tracking, as well as cumulative reports on your average daily nutrient consumption\n\n");
                 
                 //Calculates out today's total for each nutrient and prints it out, and writes it into total file. Then, it calculates the cumulative avg for each nutrient(using the CalculateCumulativeAvg() function) and prints that out.
                 calorieTotal = calculateFileTotal(file_ptr_cals);
@@ -772,9 +772,12 @@ FILE* recs;
                 calTotals = fopen("calTotals.txt", "r");
                 
                 daysTracked = calculateAmountDaysTracked(calTotals);
+                fclose(calTotals);
+                calTotals = fopen("calTotals.txt", "r");
                 
-                printf("///////////////////////////////////////////////////////////////////////////////////////////////");
-                printf("\nYou have consumed %.1lf calories today\n", calorieTotal);
+                
+                printf("--------------------------------------------------------------------------------------------\nCALORIES\n");
+                printf("\n\nYou have consumed %.1lf calories today\n", calorieTotal);
                 cumulativeDailyAvg = calculateCumulativeAvg(calTotals);
                 printf("\nYou have consumed an average of %.1lf calories per day over the past %d days.\n\n", cumulativeDailyAvg, daysTracked);
                 
@@ -786,8 +789,8 @@ FILE* recs;
                 fclose(sugarTotals);
                 sugarTotals = fopen("sugarTotals.txt", "r");
                 
-                printf("////////////////////////////////////////////////////////////////////////////////////////////////");
-                printf("\nYou have consumed %.1lf grams of sugar today\n", sugarTotal);
+                printf("--------------------------------------------------------------------------------------------\nSUGAR\n");
+                printf("\n\nYou have consumed %.1lf grams of sugar today\n", sugarTotal);
                 cumulativeDailyAvg = calculateCumulativeAvg(sugarTotals);
                 printf("\nYou have consumed an average of %.1lf grams of sugar per day over the past %d days.\n\n", cumulativeDailyAvg, daysTracked);
                 
@@ -798,8 +801,8 @@ FILE* recs;
                 fclose(sodiumTotals);
                 sodiumTotals = fopen("sodiumTotals.txt", "r");
                 
-                printf("////////////////////////////////////////////////////////////////////////////////////////////////");
-                printf("\nYou have consumed %.1lf milligrams of sodium today\n", sodiumTotal);
+                printf("--------------------------------------------------------------------------------------------\nSODIUM\n");
+                printf("\n\nYou have consumed %.1lf milligrams of sodium today\n", sodiumTotal);
                 cumulativeDailyAvg = calculateCumulativeAvg(sodiumTotals);
                 printf("\nYou have consumed an average of %.1lf milligrams of sodium per day over the past %d days.\n\n", cumulativeDailyAvg, daysTracked);
                 
@@ -810,8 +813,8 @@ FILE* recs;
                 fclose(proteinTotals);
                 proteinTotals = fopen("proteinTotals.txt", "r");
                 
-                printf("////////////////////////////////////////////////////////////////////////////////////////////////");
-                printf("\nYou have consumed %.1lf grams of protein today\n", proteinTotal);
+                printf("--------------------------------------------------------------------------------------------PROTEIN\n");
+                printf("\n\nYou have consumed %.1lf grams of protein today\n", proteinTotal);
                 cumulativeDailyAvg = calculateCumulativeAvg(proteinTotals);
                 printf("\nYou have consumed an average of %.1lf grams of protein per day over the past %d days.\n\n", cumulativeDailyAvg, daysTracked);
                 
@@ -822,8 +825,8 @@ FILE* recs;
                 fclose(fatTotals);
                 fatTotals = fopen("fatTotals.txt", "r");
                 
-                printf("////////////////////////////////////////////////////////////////////////////////////////////////");
-                printf("\nYou have consumed %.1lf grams of fat today\n", fatTotal);
+                printf("--------------------------------------------------------------------------------------------\nFAT\n");
+                printf("\n\nYou have consumed %.1lf grams of fat today\n", fatTotal);
                 cumulativeDailyAvg = calculateCumulativeAvg(fatTotals);
                 printf("\nYou have consumed an average of %.1lf grams of fat per day over the past %d days.\n\n", cumulativeDailyAvg, daysTracked);
                 
@@ -834,14 +837,14 @@ FILE* recs;
                 fclose(cholesterolTotals);
                 cholesterolTotals = fopen("cholesterolTotals.txt", "r");
                 
-                printf("////////////////////////////////////////////////////////////////////////////////////////////////");
-                printf("\nYou have consumed %.1lf milligrams of cholesterol today\n", cholesterolTotal);
+                printf("--------------------------------------------------------------------------------------------\nCHOLESTEROL\n");
+                printf("\n\nYou have consumed %.1lf milligrams of cholesterol today\n", cholesterolTotal);
                 cumulativeDailyAvg = calculateCumulativeAvg(cholesterolTotals);
                 printf("\nYou have consumed an average of %.1lf milligrams of cholesterol per day over the past %d days.\n\n", cumulativeDailyAvg, daysTracked);
                 
-                printf("\n/////////////////////////////////////////////////////////////////////////////////////////////\n");
-                printf("\n                                  GREAT WORK TRACKER!!\n");
-                printf("Thank you for tracking today!!\n\nDon't forget to come back tomorrow!\n\nRemember, Consistency is KEY!\n\n");
+            
+                printf("\n                                  Come back tomorrow!\n");
+               
                 
                 fclose(file_ptr_cals);
                 fclose(file_ptr_sugar);
